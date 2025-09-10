@@ -1,0 +1,13 @@
+/data/gcc/zlib/build/CMakeFiles/zlib.dir
+/data/gcc/zlib/build/CMakeFiles/zlibstatic.dir
+/data/gcc/zlib/build/CMakeFiles/example.dir
+/data/gcc/zlib/build/CMakeFiles/minigzip.dir
+/data/gcc/zlib/build/CMakeFiles/example64.dir
+/data/gcc/zlib/build/CMakeFiles/minigzip64.dir
+/data/gcc/zlib/build/CMakeFiles/test.dir
+/data/gcc/zlib/build/CMakeFiles/edit_cache.dir
+/data/gcc/zlib/build/CMakeFiles/rebuild_cache.dir
+/data/gcc/zlib/build/CMakeFiles/list_install_components.dir
+/data/gcc/zlib/build/CMakeFiles/install.dir
+/data/gcc/zlib/build/CMakeFiles/install/local.dir
+/data/gcc/zlib/build/CMakeFiles/install/strip.dir

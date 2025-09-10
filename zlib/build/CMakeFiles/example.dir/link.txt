@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/example.dir/test/example.o -o example  -Wl,-rpath,/data/gcc/zlib/build libz.so.1.2.11
