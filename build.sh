@@ -200,7 +200,9 @@ else
     find ${DIR_ROOT}/build/gcc-12.4/bin -type f | xargs strip > /dev/null 2>&1
     find ${DIR_ROOT}/build/gcc-12.4/libexec -type f | xargs strip > /dev/null 2>&1
     
+	echo "create package ..."
     tar -cf - -C ${DIR_ROOT}/build/ gcc-12.4 | xz -9 -c > gcc-12.4-lite-$(uname -m).tar.xz
+	echo "create package ... done"
     
     popd
 fi
