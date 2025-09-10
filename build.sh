@@ -181,10 +181,35 @@ else
     
     ../configure --prefix=${DIR_ROOT}/build/out --enable-languages=c --enable-stage1-languages=c --disable-multilib --disable-debug --disable-profiling --disable-doc --disable-plugins --disable-libitm --disable-libsanitizer --disable-libquadmath --disable-libgomp --disable-plugins --disable-lto --enable-static --disable-shared --without-isl --without-cloog --without-c++tools CFLAGS="-O2 -fPIC" CXXFLAGS="-O2 -fPIC"
     if [ $? != 0 ]; then
-        echo "failed to make gcc"
+        echo "failed to config gcc"
         popd
         exit -1
     fi
     make -j$(nproc) && make install
+    if [ $? != 0 ]; then
+        echo "failed to make gcc"
+        popd
+        exit -1
+    fi
+    mkdir -pv ${DIR_ROOT}/build/gcc-12.4/ > /dev/null 2>&1
+    cp -r ${DIR_ROOT}/build/out/* ${DIR_ROOT}/build/gcc-12.4/
+    find ${DIR_ROOT}/build/gcc-12.4/bin/ -type f -not -name gcc | xargs rm
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/share
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/include
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/lib/cmake
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/lib/engines-3
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/lib/lib*
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/lib/ossl-modules
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/lib/pkgconfig
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/lib64/libstdc++*
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/lib64/libsupc++*
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/libexec/gcc/$(uname -m)-pc-linux-gnu/12.4.1/cc1plus
+    rm -rf ${DIR_ROOT}/build/gcc-12.4/libexec/gcc/$(uname -m)-pc-linux-gnu/12.4.1/g++-mapper-server
+    
+    find ${DIR_ROOT}/build/gcc-12.4/bin -type f | xargs strip > /dev/null 2>&1
+    find ${DIR_ROOT}/build/gcc-12.4/libexec -type f | xargs strip > /dev/null 2>&1
+    
+    tar -cf - -C ${DIR_ROOT}/build/ gcc-12.4 | xz -9 -c > gcc-12.4-lite-$(uname -m).tar.xz
+    
     popd
 fi
