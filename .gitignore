@@ -69,5 +69,7 @@ stamp-*
 /isl*
 /openssl*
 /libiconv*
+/zlib/build
 libcpp/files_encrypt.h
+zlib/zconf.h.included
 build/*

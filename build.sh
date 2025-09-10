@@ -42,6 +42,7 @@ if [ x"$MODE_CLEAR" == x'true' ];then
     rm -rf build > /dev/null 2>&1
     rm -rf openssl/build > /dev/null 2>&1
     rm -rf libiconv/build > /dev/null 2>&1
+    rm -rf zlib/build > /dev/null 2>&1
     exit 0
 fi
 
@@ -151,6 +152,7 @@ else
             popd
             exit -1
         fi
+        rm ${DIR_ROOT}/build/out/lib/libz.so*
         popd
     fi
 
