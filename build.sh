@@ -111,17 +111,6 @@ else
         mkdir ${DIR_ROOT}/libiconv > /dev/null 2>&1
         tar -xvf libiconv-1.18.tar.gz -C ${DIR_ROOT}/libiconv --strip-components=1|| {rm -rf libiconv-1.18.tar.gz;rm -rf ${DIR_ROOT}/libiconv}
     fi
-    if [ ! -d ${DIR_ROOT}/zlib ];then
-        if [ ! -f ${DIR_ROOT}/zlib-1.3.1.tar.gz ];then
-            wget https://zlib.net/zlib-1.3.1.tar.gz
-            if [ $? != 0 ]; then
-                echo "failed to download zlib"
-                exit -1
-            fi
-        fi
-        mkdir ${DIR_ROOT}/zlib > /dev/null 2>&1
-        tar -xvf zlib-1.3.1.tar.gz -C ${DIR_ROOT}/zlib --strip-components=1|| {rm -rf zlib-1.3.1.tar.gz;rm -rf ${DIR_ROOT}/zlib}
-    fi
     
     #compile openssl
     if [ ! -f ${DIR_ROOT}/build/out/lib/libcrypto.a ];then

@@ -1,8 +1,0 @@
-/data/gcc/build/out/lib/libz.so.1.2.11
-/data/gcc/build/out/lib/libz.so.1
-/data/gcc/build/out/lib/libz.so
-/data/gcc/build/out/lib/libz.a
-/data/gcc/build/out/include/zconf.h
-/data/gcc/build/out/include/zlib.h
-/data/gcc/build/out/share/man/man3/zlib.3
-/data/gcc/build/out/share/pkgconfig/zlib.pc
