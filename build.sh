@@ -194,8 +194,8 @@ else
     rm -rf ${DIR_ROOT}/build/gcc-12.4/lib/pkgconfig
     rm -rf ${DIR_ROOT}/build/gcc-12.4/lib64/libstdc++*
     rm -rf ${DIR_ROOT}/build/gcc-12.4/lib64/libsupc++*
-    find rm -rf ${DIR_ROOT}/build/gcc-12.4/libexec/gcc/ -name cc1plus | xargs rm
-    find rm -rf ${DIR_ROOT}/build/gcc-12.4/libexec/gcc/ -name g++-mapper-server | xargs rm
+    find ${DIR_ROOT}/build/gcc-12.4/libexec/gcc/ -name cc1plus | xargs rm
+    find ${DIR_ROOT}/build/gcc-12.4/libexec/gcc/ -name g++-mapper-server | xargs rm
     
     find ${DIR_ROOT}/build/gcc-12.4/bin -type f | xargs strip > /dev/null 2>&1
     find ${DIR_ROOT}/build/gcc-12.4/libexec -type f | xargs strip > /dev/null 2>&1
