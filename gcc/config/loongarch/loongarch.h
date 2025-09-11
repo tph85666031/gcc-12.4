@@ -85,7 +85,7 @@ along with GCC; see the file COPYING3.  If not see
 
 #undef ASM_SPEC
 #define ASM_SPEC \
-  "%{mabi=*} " ASM_MRELAX_SPEC " %(subtarget_asm_spec)"
+  "%{mabi=lp64d:-mabi=lp64} " ASM_MRELAX_SPEC " %(subtarget_asm_spec)"
 
 /* Extra switches sometimes passed to the linker.  */
 
